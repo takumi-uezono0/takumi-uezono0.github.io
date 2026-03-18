@@ -1,14 +1,11 @@
-let weekday = date.getDay()
-
-if(weekday === 0 || weekday === 6)
-if(holidays[dateKey])
-
+//祝日取得
 async function getHolidays() {
   const res = await fetch("https://holidays-jp.github.io/api/v1/date.json");
 
   return await res.json();
 }
 
+//勤務時間計算
 function calcHours(start, end) {
   const s = new Date(`1970-01-01T${start}`);
   const e = new Date(`1970-01-01T${end}`);
@@ -21,6 +18,7 @@ function calcHours(start, end) {
   return diff;
 }
 
+//週報生成ロジック
 async function generate() {
   const holidays = await getHolidays();
 
@@ -68,24 +66,24 @@ async function generate() {
   document.getElementById("result").value = report;
 }
 
+//メール送信
 function sendMail() {
   const body = document.getElementById("result").value;
 
   location.href = `mailto:?subject=週報&body=${encodeURIComponent(body)}`;
 }
 
-function updateMonthly(hours){
+//月累計自動計算
+function updateMonthly(hours) {
+  let month = new Date().getMonth() + 1;
 
-    let month = new Date().getMonth()+1
-    
-    let key = "work_"+month
-    
-    let total = Number(localStorage.getItem(key) || 0)
-    
-    total += hours
-    
-    localStorage.setItem(key,total)
-    
-    return total
-    
-    }
+  let key = "work_" + month;
+
+  let total = Number(localStorage.getItem(key) || 0);
+
+  total += hours;
+
+  localStorage.setItem(key, total);
+
+  return total;
+}
