@@ -62,16 +62,19 @@ async function generate() {
   }
 
   report = `週計 ${weekTotal.toFixed(2)}H\n\n` + report;
+  report =
+    report +
+    `--------------------------------------------------------\n\n【問題点】\n\n　特になし\n\n【連絡事項・備考 等 】\n\n　特になし`;
 
   document.getElementById("result").value = report;
 }
 
 //メール送信
-function sendMail() {
-  const body = document.getElementById("result").value;
+// function sendMail() {
+//   const body = document.getElementById("result").value;
 
-  location.href = `mailto:?subject=週報&body=${encodeURIComponent(body)}`;
-}
+//   location.href = `mailto:?subject=週報&body=${encodeURIComponent(body)}`;
+// }
 
 //月累計自動計算
 function updateMonthly(hours) {
