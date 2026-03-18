@@ -1,19 +1,43 @@
-<h2>週報生成ツール</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>週報生成</title>
+  </head>
 
-<label>週開始日</label>
-<input type="date" id="startDate" />
+  <body>
+    <h2>週報生成ツール</h2>
 
-<label>勤務開始</label>
-<input type="time" id="startTime" value="09:00" />
+    <label>週開始日</label>
+    <input type="date" id="startDate" />
 
-<label>勤務終了</label>
-<input type="time" id="endTime" value="18:00" />
+    <br /><br />
 
-<label>作業内容</label>
-<input type="text" id="task" value="口座開設" />
+    <label>勤務開始</label>
+    <input type="time" id="startTime" value="09:00" />
 
-<button onclick="generate()">週報生成</button>
+    <br /><br />
 
-<textarea id="result" rows="20"></textarea>
+    <label>勤務終了</label>
+    <input type="time" id="endTime" value="18:00" />
 
-<button onclick="sendMail()">メール送信</button>
+    <br /><br />
+
+    <label>作業内容</label>
+    <input type="text" id="task" value="口座開設" />
+
+    <br /><br />
+
+    <button onclick="generate()">週報生成</button>
+
+    <br /><br />
+
+    <textarea id="result" rows="15" cols="50"></textarea>
+
+    <br /><br />
+
+    <button onclick="sendMail()">メール送信</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
