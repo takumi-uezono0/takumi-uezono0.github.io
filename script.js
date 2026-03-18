@@ -92,18 +92,11 @@ function updateMonthly(hours) {
 }
 
 //コピーボタン
-document.addEventListener("DOMContentLoaded", function () {
-  function copyClipboard(event) {
-    const clipboard = document.createElement("textarea");
-    clipboard.value = event.target.previousElementSibling.value;
-    event.target.appendChild(clipboard);
-    clipboard.select();
-    document.execCommand("copy");
-    event.target.removeChild(clipboard);
-  }
+const copy = () => {
+  // テキストエリアの文字を取得
+  const txt = document.getElementById("my-text-area").value;
+  console.log(txt);
 
-  const buttons = document.getElementsByClassName("copy_clipboard");
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", copyClipboard);
-  }
-});
+  // クリップボードにコピー
+  navigator.clipboard.writeText(txt);
+};
