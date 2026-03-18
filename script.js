@@ -94,7 +94,7 @@ function updateMonthly(hours) {
 //コピーボタン
 const copy = () => {
   // テキストエリアの文字を取得
-  const txt = document.getElementById("my-text-area").value;
+  const txt = document.getElementById("result").value;
   console.log(txt);
 
   // クリップボードにコピー
