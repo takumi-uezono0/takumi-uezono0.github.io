@@ -92,11 +92,15 @@ function updateMonthly(hours) {
 }
 
 //コピーボタン
-const copy = () => {
-  // テキストエリアの文字を取得
+function copy() {
   const txt = document.getElementById("result").value;
-  console.log(txt);
 
-  // クリップボードにコピー
-  navigator.clipboard.writeText(txt);
-};
+  navigator.clipboard
+    .writeText(txt)
+    .then(() => {
+      alert("コピーしました");
+    })
+    .catch((err) => {
+      console.error("コピー失敗", err);
+    });
+}
